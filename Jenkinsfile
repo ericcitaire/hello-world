@@ -35,6 +35,9 @@ pipeline {
       }
     }
     stage('Deploy to QA') {
+      environment {
+        TEST = '1'
+      }
       steps {
         build(job: 'Deploy', propagate: true)
       }
