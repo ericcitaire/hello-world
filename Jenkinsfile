@@ -5,7 +5,8 @@ pipeline {
       parallel {
         stage('Build') {
           steps {
-            build(job: 'Build', propagate: true)
+            input 'Build?'
+            echo 'Yeah!'
           }
         }
         stage('Code Lint') {
@@ -40,6 +41,7 @@ pipeline {
       }
       steps {
         build(job: 'Deploy', propagate: true)
+        input 'Déployer en QA?'
       }
     }
   }
