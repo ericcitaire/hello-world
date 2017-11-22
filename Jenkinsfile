@@ -6,9 +6,6 @@ pipeline {
         stage('Build') {
           steps {
             build(job: 'Build', propagate: true)
-            ansiColor('xterm') {
-              echo 'something that outputs ansi colored stuff'
-            }
           }
         }
         stage('Code Lint') {
